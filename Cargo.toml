@@ -1,0 +1,33 @@
+[package]
+name = "normal-mapping"
+version = "0.1.0"
+authors = ["pvdklei <pepijnvanderklei@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "pthesis"
+path = "src/lib.rs"
+
+[[bin]]
+name = "main"
+path = "src/bin/main.rs"
+
+[[bin]]
+name = "bench"
+path = "src/bin/shader_bench.rs"
+
+[dependencies]
+nalgebra = "0.26.2"
+pgl = { path = "./pgl" }
+pgeom = { path = "./pgeom" }
+glm = { version = "0.11.0", package = "nalgebra-glm" } 
+imgui = { path = "./imgui-rs/imgui" }
+glfw = "0.41.0"
+imgui_glfw = { package = "imgui_impl_glfw", path = "./imgui_impl_glfw" }
+ppga = { path = "./ppga" }
+clap = "2.33.3"
+prettytable-rs = "0.8.0"
+csv = "1.1.6"
+serde = "1.0.126"

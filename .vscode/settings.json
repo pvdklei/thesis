@@ -1,0 +1,4 @@
+{
+    "vim.vimrc.path": "$HOME/.vim/vimrc",
+    "git.ignoreLimitWarning": true
+}
