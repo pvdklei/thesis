@@ -1,0 +1,9 @@
+[submodule "pgeom"]
+	path = pgeom
+	url = https://github.com/pvdklei/pgeom.git
+[submodule "pgl"]
+	path = pgl
+	url = https://github.com/pvdklei/pgl.git
+[submodule "ppga"]
+	path = ppga
+	url = https://github.com/pvdklei/ppga.git
