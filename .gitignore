@@ -4,4 +4,6 @@ results_prepped.csv
 results.csv
 models/
 Cargo.lock
-*/.ccls-cache
+**/.ccls-cache
+**/.vscode
+**/.ipynb_checkpoints
