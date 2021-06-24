@@ -1,0 +1,25 @@
+[package]
+name = "normal-mapping"
+version = "0.1.0"
+authors = ["pvdklei <pepijnvanderklei@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "pthesis"
+path = "src/lib.rs"
+
+[[bin]]
+name = "main"
+path = "src/bin/main.rs"
+
+[dependencies]
+nalgebra = "0.26.2"
+pgl = { path = "/Users/pepijnvanderklei/Desktop/Code/philio/pgl" }
+geom = { package = "philio-geometry", path = "/Users/pepijnvanderklei/Desktop/Code/philio/pgeom" }
+glm = { version = "0.11.0", package = "nalgebra-glm" } 
+imgui = "0.7.0"
+glfw = "0.41.0"
+imgui_glfw = { package = "imgui_impl_glfw", path = "../imgui_impl_glfw" }
+ppga = { path = "../ppga" }

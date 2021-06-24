@@ -324,24 +324,25 @@ impl App {
 
         // CAR
         std::thread::spawn(move || {
-            let gun = pgeom::obj::load("models/bugatti/bugatti.obj").unwrap();
-            for mesh in gun.iter() {
-                let (vertices, faces) = mesh.render_data(|v| {
-                    vertices::All::from(vertices::PosUVNormTang {
-                        position: v.position,
-                        uv: v.uv.unwrap_or_default(),
-                        normal: v.normal.unwrap_or_default(),
-                        tangent: [0., 0., 0.],
-                    })
-                });
-                let mesh = Mesh {
-                    vertices,
-                    faces,
-                    name: mesh.name.clone().unwrap_or("Dont know but from car".into()),
-                    group: "Bugatti".into(),
-                };
-                sender_car.send(mesh).unwrap();
-            }
+            if let Ok(gun) = pgeom::obj::load("models/bugatti/bugatti.obj") {
+                for mesh in gun.iter() {
+                    let (vertices, faces) = mesh.render_data(|v| {
+                        vertices::All::from(vertices::PosUVNormTang {
+                            position: v.position,
+                            uv: v.uv.unwrap_or_default(),
+                            normal: v.normal.unwrap_or_default(),
+                            tangent: [0., 0., 0.],
+                        })
+                    });
+                    let mesh = Mesh {
+                        vertices,
+                        faces,
+                        name: mesh.name.clone().unwrap_or("Dont know but from car".into()),
+                        group: "Bugatti".into(),
+                    };
+                    sender_car.send(mesh).unwrap();
+                }
+            };
         });
 
         // SHAPES
@@ -351,6 +352,7 @@ impl App {
                 (pgeom::cylinder(10, 1), "Cylinder"),
                 (pgeom::rect(), "Rect"),
                 (pgeom::grid(100, 200), "Grid"),
+                (pgeom::monkey_saddle(200, 200), "Monkey Saddle"),
             ]
             .iter()
             .for_each(|((vertices, faces), name)| {
@@ -376,23 +378,24 @@ impl App {
 
         // GUN
         std::thread::spawn(move || {
-            let gun = pgeom::obj::load("models/gun/Handgun_obj.obj").unwrap();
-            for mesh in gun.iter() {
-                let (vertices, faces) = mesh.render_data(|v| {
-                    vertices::All::from(vertices::PosUVNormTang {
-                        position: v.position,
-                        uv: v.uv.unwrap_or_default(),
-                        normal: v.normal.unwrap(),
-                        tangent: [0., 0., 0.],
-                    })
-                });
-                let m = Mesh {
-                    vertices,
-                    faces,
-                    name: mesh.name.clone().unwrap_or("Unknown Gun Part".into()),
-                    group: "Gun".into(),
-                };
-                sender_gun.send(m).unwrap();
+            if let Ok(gun) = pgeom::obj::load("models/gun/Handgun_obj.obj") {
+                for mesh in gun.iter() {
+                    let (vertices, faces) = mesh.render_data(|v| {
+                        vertices::All::from(vertices::PosUVNormTang {
+                            position: v.position,
+                            uv: v.uv.unwrap_or_default(),
+                            normal: v.normal.unwrap(),
+                            tangent: [0., 0., 0.],
+                        })
+                    });
+                    let m = Mesh {
+                        vertices,
+                        faces,
+                        name: mesh.name.clone().unwrap_or("Unknown Gun Part".into()),
+                        group: "Gun".into(),
+                    };
+                    sender_gun.send(m).unwrap();
+                }
             }
         });
         receiver

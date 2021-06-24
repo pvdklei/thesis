@@ -10,7 +10,7 @@ def main():
                      y="id", x="average_drawtime", hue="p")
     ax.set(ylabel=None)
     ax.set(xlabel="Average Drawtime (ms)")
-    ax.legend(title="Vertices per fragment")
+    ax.legend(title="Vertices per fragment", loc="upper left")
     plt.show()
 
 if __name__ == "__main__":

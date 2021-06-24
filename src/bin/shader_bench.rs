@@ -241,14 +241,14 @@ struct BenchCamera {
 impl Default for BenchCamera {
     fn default() -> Self {
         Self {
-            pos: [0., 0., 4.].into(),
+            pos: [0., 4., 0.].into(),
         }
     }
 }
 
 impl cameras::Eye for BenchCamera {
     fn view(&self) -> glm::Mat4 {
-        glm::look_at::<f32>(&self.pos, &glm::Vec3::zeros(), &glm::Vec3::y())
+        glm::look_at::<f32>(&self.pos, &glm::Vec3::zeros(), &-glm::Vec3::z())
     }
     fn projection(&self) -> glm::Mat4 {
         glm::ortho::<f32>(-0.5, 0.5, -0.5, 0.5, 0.1, 20.)
