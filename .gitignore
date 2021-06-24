@@ -7,3 +7,4 @@ Cargo.lock
 **/.ccls-cache
 **/.vscode
 **/.ipynb_checkpoints
+.DS_Store
