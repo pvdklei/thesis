@@ -1,5 +1,7 @@
 target/
+imguizmo-rs/
 results_prepped.csv
 results.csv
 models/
 Cargo.lock
+*/.ccls-cache
