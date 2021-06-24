@@ -32,6 +32,7 @@ extern "C" {
     pub fn ImGui_ImplOpenGL3_Shutdown();
     pub fn ImGui_ImplOpenGL3_NewFrame();
     pub fn ImGui_ImplOpenGL3_RenderDrawData(draw_data: *mut ImDrawData);
+
 }
 
 pub mod backend {
