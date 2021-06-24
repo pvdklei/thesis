@@ -1,3 +1,14 @@
+res=results.csv
+if [ -f $res ]; then
+	while true; do
+		read -p "$res already exists, should I remove it? " yn
+		case $yn in
+			[Yy]*) rm results.csv; break;;
+			[Nn]*) echo "Exiting..."; exit;;
+			*) echo "Answer yes or no please";;
+		esac 
+	done
+fi
 
 for file in shaders/nm_*.glsl; do
 	v="null"
@@ -29,7 +40,7 @@ for file in shaders/nm_*.glsl; do
 	cargo run --bin bench --release --  -w 1600 -h 1600 -p $file -v $v >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		echo "[ERROR] $file"
-		return
+		exit
 	fi
 done
 

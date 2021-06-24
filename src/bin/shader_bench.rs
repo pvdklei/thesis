@@ -147,7 +147,7 @@ fn bench(
     window: &GlfwWindow,
 ) {
     let attr_define = match vertex {
-        "all" => "",
+        "all" => "ALL",
         "matrix" => "MATRIX_ATTRIBUTES",
         "normtang" => "NORMTANG_ATTRIBUTES",
         "motor" => "MOTOR_ATTRIBUTES",
