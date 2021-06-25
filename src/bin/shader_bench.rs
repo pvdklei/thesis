@@ -89,7 +89,7 @@ fn main() {
     };
 
     let mut unis = shaders::AppUniforms::new();
-    unis.update(&camera, &window, [0., 0., 3.], [0.5, 0.5, 0.5]);
+    unis.update(&camera, &window, [0., 3., 0.], [0.5, 0.5, 0.5]);
     unis.set_ubo();
 
     let mut table = Table::new();
